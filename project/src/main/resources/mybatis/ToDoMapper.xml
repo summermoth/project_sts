@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.co.kr.mapper.ToDoMapper">
+
+
+    <select id="selectToDoList" resultType="com.co.kr.domain.ToDoDTO" parameterType="Long">
+        SELECT * FROM todo 
+    </select>
+
+    <insert id="insertToDoList" parameterType="com.co.kr.domain.ToDoDTO">
+        INSERT INTO todo(item) VALUES (#{item})
+    </insert>
+    
+    <update id="updateToDoList" parameterType="com.co.kr.domain.ToDoDTO">
+        UPDATE todo SET status = 'Y' WHERE id = #{id}
+    </update>
+    
+    <delete id="deleteToDoList" parameterType="long">
+        DELETE FROM todo where id = (#{id})
+    </delete>
+
+</mapper>
